@@ -9,8 +9,16 @@
 <body>
     <script>
         var t = TrelloPowerUp.iframe();
+
         t.render(() => {
             console.log("Power-Up Loaded!");
+        });
+
+        // Add a button to import JSON/CSV
+        t.boardBar({
+            url: "https://your-project.vercel.app/upload", // Change to your deployed Vercel URL
+            height: 200,
+            title: "Import JSON/CSV"
         });
     </script>
 </body>
