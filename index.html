@@ -1,30 +1,17 @@
-const express = require("express");
-const cors = require("cors");
-
-const app = express();
-app.use(cors());
-app.use(express.json());
-
-app.get("/", (req, res) => {
-  res.json({
-    name: "Custom Fields Power-Up",
-    capabilities: ["card-buttons", "attachment-sections"],
-  });
-});
-
-app.get("/trello-button", (req, res) => {
-  res.json({
-    text: "Import Data",
-    callback: function (t) {
-      return t.popup({
-        title: "Upload JSON/CSV",
-        url: "https://example.com/upload", // Change this to your hosting URL
-      });
-    },
-  });
-});
-
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Power-Up running on port ${PORT}`);
-});
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Fields Power-Up</title>
+    <script src="https://p.trellocdn.com/power-up.min.js"></script>
+</head>
+<body>
+    <script>
+        var t = TrelloPowerUp.iframe();
+        t.render(() => {
+            console.log("Power-Up Loaded!");
+        });
+    </script>
+</body>
+</html>
