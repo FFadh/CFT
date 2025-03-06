@@ -1,4 +1,4 @@
-var GLITCH_URL = "https://ffadh.github.io/trello-powerup"; // Ganti dengan URL GitHub Pages yang benar
+var GLITCH_URL = "https://ffadh.github.io/trello-powerup/card.html"; // Ganti dengan URL GitHub Pages yang benar
 
 window.TrelloPowerUp.initialize({
   "card-back-section": function (t, options) {
@@ -7,7 +7,7 @@ window.TrelloPowerUp.initialize({
       icon: GLITCH_URL + "/icon.png", // Ganti dengan icon Power-Up kamu
       content: {
         type: "iframe",
-        url: t.signUrl(GLITCH_URL + "/card.html"), // Sesuaikan dengan URL card.html di GitHub Pages
+        url: t.signUrl(GLITCH_URL + "https://cdn-icons-png.flaticon.com/512/1484/1484799.png"), // Sesuaikan dengan URL card.html di GitHub Pages
         height: 200
       }
     };
