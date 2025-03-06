@@ -3,12 +3,12 @@
   "capabilities": {
     "card-back-section": {
       "position": "top",
-      "url": "https://yourusername.github.io/trello-powerup/card.html"
+      "url": "https://ffadh.github.io/trello-powerup/card.html"
     }
   },
   "connectors": {
     "iframe": {
-      "url": "https://ffadh.github.io/trello-powerup/"
+      "url": "https://ffadh.github.io/trello-powerup/card.html"
     }
   }
 }
