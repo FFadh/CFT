@@ -7,7 +7,7 @@ window.TrelloPowerUp.initialize({
       icon: BASE_URL + "/icon.png", // Pastikan icon tersedia di repo GitHub Pages
       content: {
         type: "iframe",
-        url: t.signUrl(BASE_URL + "/card.html"), // Pastikan file card.html tersedia
+       t.signUrl("https://ffadh.github.io/trello-powerup/card.html");
         height: 200
       }
     };
