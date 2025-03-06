@@ -14,4 +14,7 @@
   "app": {
     "url": "https://ffadh.github.io/trello-powerup/index.js"
   }
+  "security": {
+  "permissionsPolicy": {}
+}
 }
