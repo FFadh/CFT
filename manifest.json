@@ -1,15 +1,14 @@
 {
   "name": "Custom Field Power-Up",
-  "capabilities": [
-    "card-back-section",
-    "attachment-sections",
-    "board-buttons",
-    "card-buttons",
-    "settings"
-  ],
+  "capabilities": {
+    "card-back-section": {
+      "position": "top",
+      "url": "https://yourusername.github.io/trello-powerup/card.html"
+    }
+  },
   "connectors": {
     "iframe": {
-      "url": "https://ffadh.github.io/trello-powerup/"
+      "url": "https://yourusername.github.io/trello-powerup/"
     }
   }
 }
