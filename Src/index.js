@@ -1,4 +1,4 @@
-var BASE_URL = "https://ffadh.github.io/trello-powerup/public"; // Sesuaikan dengan GitHub Pages Anda
+var BASE_URL = "https://ffadh.github.io/trello-powerup/"; // Sesuaikan dengan GitHub Pages Anda
 
 window.TrelloPowerUp.initialize({
     "card-back-section": function (t, options) {
