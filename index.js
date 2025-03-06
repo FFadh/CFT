@@ -1,13 +1,13 @@
-var GLITCH_URL = "https://ffadh.github.io/trello-powerup/card.html"; // Ganti dengan URL GitHub Pages yang benar
+var BASE_URL = "https://ffadh.github.io/trello-powerup"; // URL dasar tanpa file tertentu
 
 window.TrelloPowerUp.initialize({
   "card-back-section": function (t, options) {
     return {
       title: "Custom Fields",
-      icon: GLITCH_URL + "/icon.png", // Ganti dengan icon Power-Up kamu
+      icon: BASE_URL + "/icon.png", // Pastikan icon tersedia di repo GitHub Pages
       content: {
         type: "iframe",
-        url: t.signUrl(GLITCH_URL + "https://cdn-icons-png.flaticon.com/512/1484/1484799.png"), // Sesuaikan dengan URL card.html di GitHub Pages
+        url: t.signUrl(BASE_URL + "/card.html"), // Pastikan file card.html tersedia
         height: 200
       }
     };
@@ -15,12 +15,12 @@ window.TrelloPowerUp.initialize({
   "board-buttons": function (t, options) {
     return [
       {
-        icon: GLITCH_URL + "/icon.png", 
+        icon: BASE_URL + "/icon.png",
         text: "Settings",
         callback: function (t) {
           return t.popup({
             title: "Custom Field Settings",
-            url: GLITCH_URL + "/settings.html", 
+            url: BASE_URL + "/settings.html", 
             height: 250
           });
         }
