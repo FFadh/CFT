@@ -1,0 +1,12 @@
+{
+    "id": "FFADH11",
+    "name": "Custom Fields Power-Up",
+    "icon": "https://ffadh.github.io/trello-powerup/public/icon.png",
+    "author": "FFADH",
+    "iframeConnectorUrl": "https://ffadh.github.io/trello-powerup/src/index.js",
+    "description": "Add custom fields to your Trello cards.",
+    "capabilities": [
+        "card-back-section",
+        "board-buttons"
+    ]
+}
