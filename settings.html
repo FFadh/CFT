@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://p.trellocdn.com/power-up.min.js"></script>
+</head>
+<body>
+  <h3>Settings</h3>
+
+  <label>Priority Options (comma separated):</label>
+  <input type="text" id="priority">
+
+  <label>Task Options:</label>
+  <input type="text" id="task-type">
+
+  <label>Client Names:</label>
+  <input type="text" id="client-name">
+
+  <button onclick="saveSettings()">Save</button>
+
+  <script>
+    var t = window.TrelloPowerUp.iframe();
+
+    function saveSettings() {
+      t.set('board', 'shared', 'settings', {
+        "priority": document.getElementById("priority").value.split(','),
+        "task-type": document.getElementById("task-type").value.split(','),
+        "client-name": document.getElementById("client-name").value.split(',')
+      }).then(() => t.closePopup());
+    }
+
+    t.get('board', 'shared', 'settings').then(settings => {
+      if (settings) {
+        document.getElementById("priority").value = (settings["priority"] || []).join(', ');
+        document.getElementById("task-type").value = (settings["task-type"] || []).join(', ');
+        document.getElementById("client-name").value = (settings["client-name"] || []).join(', ');
+      }
+    });
+  </script>
+</body>
+</html>
