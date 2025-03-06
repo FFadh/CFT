@@ -1,25 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Custom Fields Power-Up</title>
-    <script src="https://p.trellocdn.com/power-up.min.js"></script>
+  <script src="https://p.trellocdn.com/power-up.min.js"></script>
 </head>
 <body>
-    <script>
-        var t = TrelloPowerUp.iframe();
+  <h3>Custom Fields</h3>
+  
+  <label>Number Input:</label>
+  <input type="number" id="custom-number">
+  
+  <label>Priority:</label>
+  <select id="priority"></select>
 
-        t.render(() => {
-            console.log("Power-Up Loaded!");
-        });
+  <label>Task Type:</label>
+  <select id="task-type"></select>
 
-        // Add a button to import JSON/CSV
-        t.boardBar({
-            url: "https://cft-ffadhs-projects.vercel.app/upload", // Change to your deployed Vercel URL
-            height: 200,
-            title: "Import JSON/CSV"
+  <label>Client Name:</label>
+  <select id="client-name"></select>
+
+  <button onclick="saveData()">Save</button>
+
+  <script>
+    var t = window.TrelloPowerUp.iframe();
+
+    function saveData() {
+      t.set('card', 'shared', 'customFields', {
+        number: document.getElementById("custom-number").value,
+        priority: document.getElementById("priority").value,
+        task: document.getElementById("task-type").value,
+        client: document.getElementById("client-name").value
+      }).then(() => t.closePopup());
+    }
+
+    function loadSettings() {
+      t.get('board', 'shared', 'settings').then(settings => {
+        if (!settings) return;
+        ["priority", "task-type", "client-name"].forEach(id => {
+          let select = document.getElementById(id);
+          select.innerHTML = "";
+          (settings[id] || []).forEach(option => {
+            let opt = document.createElement("option");
+            opt.value = opt.textContent = option;
+            select.appendChild(opt);
+          });
         });
-    </script>
+      });
+    }
+
+    t.get('card', 'shared', 'customFields').then(data => {
+      if (data) {
+        document.getElementById("custom-number").value = data.number || "";
+        document.getElementById("priority").value = data.priority || "";
+        document.getElementById("task-type").value = data.task || "";
+        document.getElementById("client-name").value = data.client || "";
+      }
+    });
+
+    loadSettings();
+  </script>
 </body>
 </html>
