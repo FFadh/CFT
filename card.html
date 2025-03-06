@@ -29,6 +29,8 @@
 
   <script>
     var t = window.TrelloPowerUp.iframe();
+t.signUrl("https://ffadh.github.io/trello-powerup/card.html");
+
 
     function saveData() {
       t.set('card', 'shared', 'customFields', {
@@ -46,7 +48,7 @@
           let select = document.getElementById(id);
           select.innerHTML = "";
           (settings[id] || []).forEach(option => {
-            let opt = document.createElement("option");
+            let opt = document.createElement("option");        
             opt.value = opt.textContent = option;
             select.appendChild(opt);
           });
@@ -57,7 +59,7 @@
     t.get('card', 'shared', 'customFields').then(data => {
       if (data) {
         document.getElementById("custom-number").value = data.number || "";
-        document.getElementById("priority").value = data.priority || "";
+        document.getElementById("priority").value = data.priority || "";          
         document.getElementById("task-type").value = data.task || "";
         document.getElementById("client-name").value = data.client || "";
       }
